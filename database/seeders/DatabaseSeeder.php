@@ -136,17 +136,24 @@ class DatabaseSeeder extends Seeder
                 'unit_id' => $sdmUnit->id,
             ]);
 
-            $shelf1 = \App\Models\ArchiveShelf::firstOrCreate(['code' => 'RAK-001'], [
+            $shelf1 = \App\Models\ArchiveRack::firstOrCreate(['code' => 'RAK-001'], [
                 'name' => 'Rak Arsip A - Periode 2018-2020',
                 'location' => 'Lantai 2, Ruang Arsip Tengah',
                 'description' => 'Rak untuk menyimpan ordner dengan periode 2018 hingga 2020',
                 'status' => 'active',
                 'managed_by_unit_id' => $sdmUnit->id,
             ]);
-            $shelf2 = \App\Models\ArchiveShelf::firstOrCreate(['code' => 'RAK-002'], [
+            $shelf2 = \App\Models\ArchiveRack::firstOrCreate(['code' => 'RAK-002'], [
                 'name' => 'Rak Arsip B - Periode 2020-2022',
                 'location' => 'Lantai 2, Ruang Arsip Kanan',
                 'description' => 'Rak cadangan untuk ordner masa retensi jangka menengah',
+                'status' => 'active',
+                'managed_by_unit_id' => $sdmUnit->id,
+            ]);
+
+            $box1 = \App\Models\ArchiveBox::firstOrCreate(['code' => 'RAK-001-B1'], [
+                'name' => 'Box 1 - Rak Arsip A',
+                'archive_rack_id' => $shelf1->id,
                 'status' => 'active',
                 'managed_by_unit_id' => $sdmUnit->id,
             ]);
@@ -162,7 +169,7 @@ class DatabaseSeeder extends Seeder
                 'status' => 'inactive',
                 'description' => 'Ordner SK SDM Tahun 2019 - Retensi Habis',
                 'retention_expires_at' => '2024-12-31',
-                'archive_shelf_id' => null,
+                'archive_box_id' => null,
             ]);
 
             // Ordner EXPIRED, SUDAH masuk rak (tidak muncul di index ordner)
@@ -174,7 +181,7 @@ class DatabaseSeeder extends Seeder
                 'status' => 'inactive',
                 'description' => 'Ordner SK SDM Tahun 2018 - Sudah diarsipkan',
                 'retention_expires_at' => '2023-06-01',
-                'archive_shelf_id' => $shelf1->id,
+                'archive_box_id' => $box1->id,
             ]);
 
             // Ordner HRD AKTIF (muncul normal di index)
@@ -186,7 +193,7 @@ class DatabaseSeeder extends Seeder
                 'status' => 'active',
                 'description' => 'Ordner Kepegawaian Aktif 2025',
                 'retention_expires_at' => '2035-12-31',
-                'archive_shelf_id' => null,
+                'archive_box_id' => null,
             ]);
 
             // Ordner HRD AKTIF 2 (muncul normal)
@@ -198,7 +205,7 @@ class DatabaseSeeder extends Seeder
                 'status' => 'active',
                 'description' => 'Ordner Kontrak Kerja 2025',
                 'retention_expires_at' => '2035-12-31',
-                'archive_shelf_id' => null,
+                'archive_box_id' => null,
             ]);
 
             // Dokumen Arsip untuk ordner aktif SDM-HRD/001/2025

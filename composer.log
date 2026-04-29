@@ -1,0 +1,47 @@
+[30;43mCannot use spatie/laravel-permission's latest version 7.2.3 as it requires php ^8.4 which is not satisfied by your platform.[39;49m
+[32m./composer.json has been updated[39m
+[32mRunning composer update spatie/laravel-permission[39m
+[32mLoading composer repositories with package information[39m
+[32mUpdating dependencies[39m
+Nothing to modify in lock file
+[32mWriting lock file[39m
+[32mInstalling dependencies from lock file (including require-dev)[39m
+Nothing to install, update or remove
+[32mGenerating optimized autoload files[39m
+> Illuminate\Foundation\ComposerScripts::postAutoloadDump
+> @php artisan package:discover --ansi
+
+  [37;44m INFO [39;49m Discovering packages.  
+
+  anourvalar/eloquent-serialize  [32;1mDONE[39;22m
+  bezhansalleh/filament-shield  [32;1mDONE[39;22m
+  blade-ui-kit/blade-heroicons  [32;1mDONE[39;22m
+  blade-ui-kit/blade-icons  [32;1mDONE[39;22m
+  filament/actions [90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m [32;1mDONE[39;22m
+  filament/filament [90m.[39m[90m.[39m[90m.[39m[90m.[39m [32;1mDONE[39;22m
+  filament/forms [90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m [32;1mDONE[39;22m
+  filament/infolists [90m.[39m[90m.[39m[90m.[39m [32;1mDONE[39;22m
+  filament/notifications  [32;1mDONE[39;22m
+  filament/support [90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m [32;1mDONE[39;22m
+  filament/tables [90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m [32;1mDONE[39;22m
+  filament/widgets [90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m [32;1mDONE[39;22m
+  kirschbaum-development/eloquent-power-joins  [32;1mDONE[39;22m
+  laravel/sail [90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m [32;1mDONE[39;22m
+  laravel/sanctum [90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m [32;1mDONE[39;22m
+  laravel/tinker [90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m [32;1mDONE[39;22m
+  livewire/livewire [90m.[39m[90m.[39m[90m.[39m[90m.[39m [32;1mDONE[39;22m
+  nesbot/carbon [90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m [32;1mDONE[39;22m
+  nunomaduro/collision [90m.[39m [32;1mDONE[39;22m
+  nunomaduro/termwind [90m.[39m[90m.[39m [32;1mDONE[39;22m
+  ryangjchandler/blade-capture-directive  [32;1mDONE[39;22m
+  spatie/laravel-ignition  [32;1mDONE[39;22m
+  spatie/laravel-permission  [32;1mDONE[39;22m
+
+[32m98 packages you are using are looking for funding.[39m
+[32mUse the `composer fund` command to find out more![39m
+> @php artisan vendor:publish --tag=laravel-assets --ansi --force
+
+  [37;44m INFO [39;49m No publishable resources for tag [1m[laravel-assets][22m.  
+
+[32mNo security vulnerability advisories found.[39m
+Using version [32m^6.24[39m for [32mspatie/laravel-permission[39m

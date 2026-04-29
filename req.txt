@@ -1,0 +1,70 @@
+Saya sedang membangun sistem manajemen arsip menggunakan Laravel + Filament.
+
+Saat ini saya ingin memperbaiki struktur database agar sesuai dengan konsep arsip yang benar, yaitu:
+
+Rak Arsip → Box Arsip → Ordner → Dokumen
+
+Kondisi saat ini:
+
+* Saya sudah memiliki tabel `archive_shelves`, tetapi struktur tersebut sebenarnya lebih cocok sebagai **rak arsip**, bukan box.
+* Saya juga memiliki tabel `ordners` yang saat ini terhubung ke `archive_shelves`.
+
+Kebutuhan saya:
+
+1. Pisahkan konsep menjadi:
+
+   * `archive_racks` (rak arsip)
+   * `archive_boxes` (box arsip)
+
+2. Struktur tabel yang diinginkan:
+
+Tabel `archive_racks`:
+
+* id
+* code (unique, contoh: RAK-A1)
+* name
+* location (nullable)
+* capacity (nullable, jumlah box maksimal)
+* description (nullable)
+* status (default: active)
+* managed_by_unit_id (FK ke units, nullable)
+* timestamps
+
+Tabel `archive_boxes`:
+
+* id
+* code (unique, contoh: BOX-001)
+* name
+* description (nullable)
+* archive_rack_id (FK ke archive_racks, nullable)
+* status (default: active)
+* managed_by_unit_id (FK ke units, nullable)
+* created_by (FK ke users, nullable)
+* timestamps
+
+3. Update tabel `ordners`:
+
+* Ganti relasi dari `archive_shelf_id` menjadi `archive_box_id`
+* Tambahkan field `retention_expires_at` (date, nullable)
+
+4. Buatkan:
+
+* Migration lengkap (create + alter table)
+* Relasi Eloquent Model:
+
+  * Rack hasMany Boxes
+  * Box belongsTo Rack
+  * Box hasMany Ordners
+  * Ordner belongsTo Box
+
+5. (Opsional tapi diutamakan)
+
+* Refactor migration lama (`archive_shelves`) menjadi `archive_racks` TANPA kehilangan data (gunakan rename table jika memungkinkan)
+
+Output yang saya inginkan:
+
+* Kode migration Laravel lengkap
+* Model Laravel lengkap beserta relasinya
+* Penjelasan singkat relasi
+
+Gunakan best practice Laravel terbaru.

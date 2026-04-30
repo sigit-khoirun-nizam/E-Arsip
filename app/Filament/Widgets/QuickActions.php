@@ -12,6 +12,7 @@ class QuickActions extends Widget
 
     protected int | string | array $columnSpan = [
         'default' => 12,
+        'sm' => 12,
         'md' => 6,
         'lg' => 4,
     ];

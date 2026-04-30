@@ -21,6 +21,14 @@ class StatsOverview extends BaseWidget
 
     protected static ?string $pollingInterval = '30s';
 
+    protected int | string | array $columnSpan = [
+        'default' => 12,
+        'sm' => 12,
+        'md' => 6,
+        'lg' => 3,
+        'xl' => 3,
+    ];
+
     protected function getStats(): array
     {
         $user = auth()->user();
@@ -92,12 +100,6 @@ class StatsOverview extends BaseWidget
         }
 
         // Normal Unit Stats
-        $expiredCount = Ordner::where('unit_id', $unitId)
-            ->whereNotNull('retention_expires_at')
-            ->where('retention_expires_at', '<=', now())
-            ->whereNull('archive_box_id')
-            ->count();
-
         return [
             Stat::make('Dokumen Unit Anda', new \Illuminate\Support\HtmlString('<span class="text-xl font-bold">' . Archive::where('unit_id', $unitId)->count() . '</span>'))
                 ->description('Total arsip digital unit')
@@ -115,11 +117,6 @@ class StatsOverview extends BaseWidget
                 ->descriptionIcon('heroicon-m-paper-airplane')
                 ->chart([5, 2, 8, 3, 10, 4, 12])
                 ->color('primary'),
-
-            Stat::make('Perlu Tindakan', new \Illuminate\Support\HtmlString('<span class="text-xl font-bold">' . $expiredCount . '</span>'))
-                ->description($expiredCount > 0 ? 'Ada ordner expired!' : 'Semua aman')
-                ->descriptionIcon($expiredCount > 0 ? 'heroicon-m-exclamation-triangle' : 'heroicon-m-check-badge')
-                ->color($expiredCount > 0 ? 'danger' : 'success'),
         ];
     }
 }

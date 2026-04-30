@@ -79,12 +79,12 @@ class DatabaseSeeder extends Seeder
             ]);
 
             // 5. Seed Letter Types
-            \App\Models\LetterType::firstOrCreate(['name' => 'Surat Keluar Biasa', 'unit_id' => $bau->id], [
+            \App\Models\LetterType::firstOrCreate(['name' => '-', 'unit_id' => $bau->id], [
                 'color' => '#ef4444',
                 'description' => 'Merah',
             ]);
 
-            \App\Models\LetterType::firstOrCreate(['name' => 'Surat Edaran', 'unit_id' => $bau->id], [
+            \App\Models\LetterType::firstOrCreate(['name' => '-', 'unit_id' => $bau->id], [
                 'color' => '#8b5cf6',
                 'description' => 'Ungu',
             ]);
@@ -117,7 +117,7 @@ class DatabaseSeeder extends Seeder
             }
 
             // Letter Type untuk unit SDM & Umum
-            $ltSdm = \App\Models\LetterType::firstOrCreate(['name' => 'Surat Dinas SDM', 'unit_id' => $sdmUnit->id], [
+            $ltSdm = \App\Models\LetterType::firstOrCreate(['name' => '-', 'unit_id' => $sdmUnit->id], [
                 'color' => '#10b981',
                 'description' => 'Surat resmi unit SDM',
             ]);
